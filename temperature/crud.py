@@ -48,7 +48,7 @@ async def update_temperatures(db: AsyncSession) -> None:
     """
     cities = await get_cities(db=db)
 
-    if not cities:
+    if cities is not None:
         raise HTTPException(
             status_code=404,
             detail="No cities found in the database for temperature updates."

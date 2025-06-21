@@ -22,7 +22,7 @@ async def fetch_temperature_from_api(city_name: str) -> Optional[float]:
             response = await client.get(url)
             response.raise_for_status()
 
-            data = response.json()
+            data = await response.json()
             return data["current"]["temp_c"]
 
         except httpx.HTTPStatusError as e:

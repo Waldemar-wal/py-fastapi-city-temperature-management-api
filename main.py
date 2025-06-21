@@ -7,7 +7,7 @@ app = FastAPI()
 api_router = APIRouter(prefix="/api/v1")
 
 api_router.include_router(cities_router)
-app.include_router(temperature_router)
+api_router.include_router(temperature_router)
 
 app.include_router(api_router)
 
